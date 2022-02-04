@@ -19,4 +19,8 @@ class Centro extends Model
         'fundado',
         'terminos'=> 'boolean',
     ];
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
 }
