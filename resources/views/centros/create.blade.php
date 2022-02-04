@@ -97,7 +97,7 @@
                 <br>
             @enderror
         </div>
-        {{-- <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}"> --}}
+        <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">
         <button type="submit" class="btn btn-success p-1 m-2">@lang('Create')</button>
     </form>
 </div>
