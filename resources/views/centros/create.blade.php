@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title','Create')
-    
+
 @section('content')
 <h2 class="text-center">Crear Centro</h2>
 <div class="continer d-flex justify-content-center">
@@ -75,8 +75,8 @@
         <div class="form-group m-2">
             <label>@lang('Description'):</label>
             <br>
-            <textarea name="descripcion" rows="5" required>
-                {{{ old('descripcion') }}}
+            <textarea name="descripcion" rows="2" required>
+                {{ old('descripcion') }}
             </textarea>
         
             @error('descripcion')
