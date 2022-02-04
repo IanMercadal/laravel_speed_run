@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Centro;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
 class CentroController extends Controller
@@ -12,9 +13,11 @@ class CentroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $centros = Centro::all();
+        return view('centros.index', compact('centros'));
+        // return view(RouteServiceProvider::HOME);
     }
 
     /**
@@ -22,9 +25,9 @@ class CentroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Centro $centro)
     {
-        //
+        return view('centros.create', compact('centro'));
     }
 
     /**
@@ -35,7 +38,10 @@ class CentroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $centro = Centro::create($request->all());
+
+        // Ya lo hace automatico el create $centro->save();
+        return redirect()->route('centros.index', $centro);
     }
 
     /**
