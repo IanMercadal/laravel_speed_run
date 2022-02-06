@@ -19,7 +19,8 @@ class Centro extends Model
         'entidad',
         'extraescolar',
         'fundado',
-        'terminos'=> 'boolean',
+        'terminos',
+        'avatar'
     ];
 
     public function users(){

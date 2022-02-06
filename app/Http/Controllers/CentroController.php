@@ -41,8 +41,15 @@ class CentroController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $centro = Centro::create($request->all());
+        // $centro = Centro::create($request->all());
+        // if($request->hasFile('avatar')){
+        //     $centro->avatar = $request->file('avatar')->store('public');
+        // }
 
+        $centro = (new Centro)->fill($request->all() );
+        $centro->avatar = $request->file('avatar')->store('public');
+
+        $centro->save();
         // Ya lo hace automatico el create $centro->save();
         return redirect()->route('centros.index', $centro);
     }
@@ -81,7 +88,12 @@ class CentroController extends Controller
     public function update(Request $request, Centro $centro)
     {
         $this->authorize('update',$centro);
-        $centro->update($request->all());
+
+        $centro = (new Centro)->fill($request->all() );
+        $centro->avatar = $request->file('avatar')->store('public');
+
+        $centro->save();
+
         return redirect()->route('centros.index', $centro);
     }
 

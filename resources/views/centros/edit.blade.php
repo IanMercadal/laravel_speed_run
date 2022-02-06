@@ -26,6 +26,16 @@
                 <br>
             @enderror
         </div>
+
+        <div class="form-group m-2">
+            <td> <img width="100px" src="{{Storage::url($centro->avatar)}}" alt=""></td>
+            <label>@lang('Image')<br> <input class="form-control" type="file" name="avatar" value="{{ old('avatar',$centro->avatar)}}" required></label>
+            @error('avatar')
+                <br>
+                <small class="text-danger">*{{$message}}</small>
+                <br>
+            @enderror
+        </div>
         
         <div class="form-group m-2">
             <label>@lang('Capacity'): <br> <input type="number" class="form-control" name="capacidad" value="{{ old('capacidad',$centro->capacidad) }}" required></label>

@@ -10,6 +10,7 @@
             <p>{{Auth::user()->user_role}}</p>
             <tr class="text-center">
                 <th scope="col">ID</th>
+                <th scope="col">Imagen</th>
                 <th scope="col">Centro</th>
                 <th scope="col">Fundado</th>
                 <th>
@@ -24,6 +25,7 @@
             @foreach($centros as $centro)
             <tr class="text-center">
                 <td>{{ $centro->id}}</td>
+                <td> <img width="100px" src="{{Storage::url($centro->avatar)}}" alt=""></td>
                 <td>{{ $centro->name}}</td>
                 <td>{{ $centro->fundado}}</td>
                 <td>
